@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="510.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.MainFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="175.0" layoutY="62.0" text="Student Details" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <VBox layoutX="10.0" layoutY="99.0" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <HBox prefHeight="36.0" prefWidth="619.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" minWidth="110.0" prefHeight="42.0" prefWidth="104.0" text="ID :" />
+                  <TextField fx:id="txtId" maxWidth="1.7976931348623157E308" promptText="Eg. S001" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="619.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" minWidth="110.0" prefHeight="42.0" prefWidth="104.0" text="Name :" />
+                  <TextField fx:id="txtName" maxWidth="1.7976931348623157E308" promptText="Eg. Kasun" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="149.0" prefWidth="599.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="110.0" prefHeight="42.0" prefWidth="104.0" text="Address :" HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="txtAddress" maxWidth="1.7976931348623157E308" onMouseEntered="#txtAddressOnMouseEntered" prefHeight="111.0" prefWidth="485.0" promptText="Eg. Grace Peries Road, Panadura" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="619.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="104.0" text="Picture :" />
+                  <HBox spacing="10.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <ImageView fx:id="imgPreview" fitHeight="114.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/No_Image_Available.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <VBox prefHeight="150.0" prefWidth="135.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="btnBrowse" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBrowseOnAction" text="Browse">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/folder.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="btnRemove" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnRemoveOnAction" text="Remove">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/bin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="btnSave" defaultButton="true" layoutX="132.0" layoutY="448.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="42.0" prefWidth="114.0" text="SAVE" textFill="WHITE" />
+   </children>
+</AnchorPane>
