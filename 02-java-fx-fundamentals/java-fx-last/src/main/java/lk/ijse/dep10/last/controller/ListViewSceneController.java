@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lk.ijse.dep10.last.model.Student;
 
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class ListViewSceneController {
     public TextField txtAddress;
     public Button btnSave;
     public Button btnDelete;
-    public ListView lstStudents;
+    public ListView<Student> lstStudents;
 
     @FXML
     private Button btnAdd;
@@ -34,10 +35,10 @@ public class ListViewSceneController {
     @FXML
     private TextField txtInput;
 
-    public void initialize(){
+    public void initialize() {
         lstNames.getSelectionModel().selectedItemProperty().addListener((value, previous, current) -> {
 
-            if (current == null){
+            if (current == null) {
                 lblSelectedName.setText("No name has been selected");
                 btnRemove.setDisable(true);
                 return;
@@ -68,8 +69,7 @@ public class ListViewSceneController {
     @FXML
     void btnRemoveOnAction(ActionEvent event) {
         String selectedName = lstNames.getSelectionModel().getSelectedItem();
-        Alert confirmMsg = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete " + selectedName,
-                ButtonType.YES, ButtonType.NO);
+        Alert confirmMsg = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete " + selectedName, ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> optButton = confirmMsg.showAndWait();
         if (optButton.isEmpty() || optButton.get() == ButtonType.NO) return;
 
@@ -81,7 +81,7 @@ public class ListViewSceneController {
     }
 
     public void lstNamesOnKeyReleased(KeyEvent keyEvent) {
-        if (keyEvent.getCode() == KeyCode.DELETE){
+        if (keyEvent.getCode() == KeyCode.DELETE) {
             btnRemove.fire();
         }
     }
@@ -112,28 +112,56 @@ public class ListViewSceneController {
         txtName.getStyleClass().remove("invalid");
         txtAddress.getStyleClass().remove("invalid");
 
+        // Data Validation
+        boolean isDataValid = true;
+
         if (address.isBlank() || address.length() < 3){
             txtAddress.getStyleClass().add("invalid");
             txtAddress.selectAll();
             txtAddress.requestFocus();
+            isDataValid = false;
         }
 
         if (name.isBlank()){
             txtName.getStyleClass().add("invalid");
             txtName.selectAll();
             txtName.requestFocus();
+            isDataValid = false;
         }
 
-        if (id.isBlank() || id.charAt(0) != 'S' || id.substring(1).length() < 3 ||
+        if (id.isBlank() || id.charAt(0) != 'S' ||
+                id.substring(1).length() < 3 ||
                 !isNumber(id.substring(1))){
             txtId.getStyleClass().add("invalid");
             txtId.selectAll();
             txtId.requestFocus();
+            isDataValid = false;
         }
+
+        if (!isDataValid) return;
+
+        // Business Validation
+        ObservableList<Student> studentList = lstStudents.getItems();
+
+        for (Student student : studentList) {
+            if (student.id.equals(id)) {
+                txtId.getStyleClass().add("invalid");
+                txtId.selectAll();
+                txtId.requestFocus();
+                return;
+            }
+        }
+
+        Student student = new Student(id, name, address);
+        studentList.add(student);
+
+        btnNew.fire();
+
     }
 
     private boolean isNumber(String input){
-        for (char c : input.toCharArray()) {
+        char[] chars = input.toCharArray();
+        for (char c : chars) {
             if (!Character.isDigit(c)) return false;
         }
         return true;
@@ -141,6 +169,7 @@ public class ListViewSceneController {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
     }
+
 
     public void txtOnAction(ActionEvent actionEvent) {
         btnSave.fire();
