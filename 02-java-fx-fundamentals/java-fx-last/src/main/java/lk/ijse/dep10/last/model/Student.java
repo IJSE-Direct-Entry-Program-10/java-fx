@@ -13,6 +13,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("%-5s%-15s%-20s", id, name, address);
+        return String.format("%-5s\t%-15s\t%-20s", id, name, address);
     }
 }
