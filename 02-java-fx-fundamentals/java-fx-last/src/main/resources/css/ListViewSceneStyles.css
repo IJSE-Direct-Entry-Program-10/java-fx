@@ -1,27 +1,30 @@
-#lstNames {
+#lstNames, #lstStudents {
     -fx-font-size: 16px;
 }
 
-#btnRemove:hover {
+#btnRemove:hover, #btnDelete:hover {
     -fx-background-color: rgba(180, 0, 0, 0.7);
 }
 
-#btnRemove {
+#btnRemove, #btnDelete {
     -fx-background-color: #b40000;
     -fx-text-fill: white;
-    /*-fx-cursor: hand;*/
-    /*-fx-font-size: 24px;*/
-    /*-fx-font-weight: 700;*/
-    /*-fx-font-style: italic;*/
-
-    /*-fx-background-radius: 5px;*/
-
-    /*-fx-border-color: red;*/
-    /*-fx-border-width: 3px;*/
-    /*-fx-border-radius: 25px;*/
-    /*-fx-border-style: dotted;*/
 }
 
-/*.label{*/
-/*    -fx-background-color: red;*/
-/*}*/
+#btnNew {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+#btnNew:hover {
+    -fx-background-color: rgba(0, 128, 0, 0.82);
+}
+
+#btnSave {
+    -fx-background-color: #0078d2;
+    -fx-text-fill: white;
+}
+
+#btnSave:hover {
+    -fx-background-color: rgba(0, 149, 255, 0.85);
+}

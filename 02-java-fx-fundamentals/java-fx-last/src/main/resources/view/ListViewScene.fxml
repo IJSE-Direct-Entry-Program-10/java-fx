@@ -4,12 +4,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="357.0" prefWidth="701.0" stylesheets="@../css/ListViewSceneStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewSceneController">
+<AnchorPane prefHeight="651.0" prefWidth="701.0" stylesheets="@../css/ListViewSceneStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewSceneController">
    <children>
       <Label alignment="CENTER" layoutX="294.0" layoutY="26.0" text="List View Demo" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <font>
@@ -53,5 +55,72 @@
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </padding>
       </HBox>
+      <Separator layoutX="15.0" layoutY="347.0" prefHeight="1.0" prefWidth="671.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <VBox layoutX="15.0" layoutY="362.0" prefHeight="311.0" prefWidth="222.0" spacing="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="362.0">
+         <children>
+            <Button fx:id="btnNew" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnNewOnAction" text="NEW +">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label text="ID">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtId" promptText="Eg. S001">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="10.0" layoutY="10.0" text="NAME">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtName" layoutX="10.0" layoutY="10.0" promptText="Eg. Kasun">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="10.0" layoutY="156.0" text="ADDRESS">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtAddress" layoutX="10.0" layoutY="34.0" promptText="Eg. Panadura">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <HBox spacing="10.0">
+               <children>
+                  <Button fx:id="btnSave" maxWidth="1.7976931348623157E308" minWidth="90.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDelete" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minWidth="90.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <ListView fx:id="lstStudents" layoutX="251.0" layoutY="362.0" prefHeight="282.0" prefWidth="435.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="362.0" />
    </children>
 </AnchorPane>
