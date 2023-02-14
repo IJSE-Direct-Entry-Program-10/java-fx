@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="239.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.MainViewController">
+   <children>
+      <Label alignment="CENTER" layoutX="253.0" layoutY="37.0" text="Java FX Final App" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="22.0" layoutY="56.0" prefHeight="177.0" prefWidth="260.0" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="55.0">
+         <children>
+            <Button fx:id="btnListView" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnListViewOnAction" prefHeight="34.0" prefWidth="260.0" text="List View">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnComboBox" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnComboBoxOnAction" prefHeight="34.0" prefWidth="260.0" text="Combo Box">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTableView" layoutX="10.0" layoutY="44.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnTableViewOnAction" prefHeight="34.0" prefWidth="260.0" text="Table View">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSceneCommunication" layoutX="10.0" layoutY="78.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSceneCommunicationOnAction" prefHeight="34.0" prefWidth="260.0" text="Scene-Scene Communication">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
