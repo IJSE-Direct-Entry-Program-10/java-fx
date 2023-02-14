@@ -71,7 +71,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtId" promptText="Eg. S001">
+            <TextField fx:id="txtId" disable="true" onAction="#txtOnAction" promptText="Eg. S001">
                <font>
                   <Font size="16.0" />
                </font>
@@ -84,7 +84,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtName" layoutX="10.0" layoutY="10.0" promptText="Eg. Kasun">
+            <TextField fx:id="txtName" disable="true" layoutX="10.0" layoutY="10.0" onAction="#txtOnAction" promptText="Eg. Kasun">
                <font>
                   <Font size="16.0" />
                </font>
@@ -97,19 +97,19 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtAddress" layoutX="10.0" layoutY="34.0" promptText="Eg. Panadura">
+            <TextField fx:id="txtAddress" disable="true" layoutX="10.0" layoutY="34.0" onAction="#txtOnAction" promptText="Eg. Panadura">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
             <HBox spacing="10.0">
                <children>
-                  <Button fx:id="btnSave" maxWidth="1.7976931348623157E308" minWidth="90.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btnSave" disable="true" maxWidth="1.7976931348623157E308" minWidth="90.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnDelete" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minWidth="90.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btnDelete" disable="true" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minWidth="90.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>

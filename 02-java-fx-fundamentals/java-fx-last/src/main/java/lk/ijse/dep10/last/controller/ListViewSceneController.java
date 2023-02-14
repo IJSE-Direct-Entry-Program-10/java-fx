@@ -11,6 +11,14 @@ import java.util.Optional;
 
 public class ListViewSceneController {
 
+    public Button btnNew;
+    public TextField txtId;
+    public TextField txtName;
+    public TextField txtAddress;
+    public Button btnSave;
+    public Button btnDelete;
+    public ListView lstStudents;
+
     @FXML
     private Button btnAdd;
 
@@ -76,5 +84,65 @@ public class ListViewSceneController {
         if (keyEvent.getCode() == KeyCode.DELETE){
             btnRemove.fire();
         }
+    }
+
+    public void btnNewOnAction(ActionEvent actionEvent) {
+        txtId.setDisable(false);
+        txtName.setDisable(false);
+        txtAddress.setDisable(false);
+        btnSave.setDisable(false);
+
+        txtId.clear();
+        txtName.clear();
+        txtAddress.clear();
+
+        txtId.getStyleClass().remove("invalid");
+        txtName.getStyleClass().remove("invalid");
+        txtAddress.getStyleClass().remove("invalid");
+
+        txtId.requestFocus();
+    }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) {
+        String id = txtId.getText();
+        String name = txtName.getText();
+        String address = txtAddress.getText();
+
+        txtId.getStyleClass().remove("invalid");
+        txtName.getStyleClass().remove("invalid");
+        txtAddress.getStyleClass().remove("invalid");
+
+        if (address.isBlank() || address.length() < 3){
+            txtAddress.getStyleClass().add("invalid");
+            txtAddress.selectAll();
+            txtAddress.requestFocus();
+        }
+
+        if (name.isBlank()){
+            txtName.getStyleClass().add("invalid");
+            txtName.selectAll();
+            txtName.requestFocus();
+        }
+
+        if (id.isBlank() || id.charAt(0) != 'S' || id.substring(1).length() < 3 ||
+                !isNumber(id.substring(1))){
+            txtId.getStyleClass().add("invalid");
+            txtId.selectAll();
+            txtId.requestFocus();
+        }
+    }
+
+    private boolean isNumber(String input){
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+
+    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    }
+
+    public void txtOnAction(ActionEvent actionEvent) {
+        btnSave.fire();
     }
 }

@@ -28,3 +28,9 @@
 #btnSave:hover {
     -fx-background-color: rgba(0, 149, 255, 0.85);
 }
+
+.invalid {      /* <- CSS Class */
+    -fx-border-width: 1px;
+    -fx-border-color: red;
+    -fx-border-radius: 5px;
+}
