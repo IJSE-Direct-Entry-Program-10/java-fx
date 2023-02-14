@@ -121,6 +121,6 @@
             </HBox>
          </children>
       </VBox>
-      <ListView fx:id="lstStudents" layoutX="251.0" layoutY="362.0" prefHeight="282.0" prefWidth="435.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="362.0" />
+      <ListView fx:id="lstStudents" layoutX="251.0" layoutY="362.0" onKeyReleased="#lstStudentsOnKeyReleased" prefHeight="282.0" prefWidth="435.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="362.0" />
    </children>
 </AnchorPane>

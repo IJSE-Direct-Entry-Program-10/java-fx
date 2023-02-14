@@ -157,20 +157,25 @@ public class ListViewSceneController {
 
         if (!isDataValid) return;
 
-        // Business Validation
         ObservableList<Student> studentList = lstStudents.getItems();
 
-        for (Student student : studentList) {
-            if (student.id.equals(id)) {
-                txtId.getStyleClass().add("invalid");
-                txtId.selectAll();
-                txtId.requestFocus();
-                return;
+        if (lstStudents.getSelectionModel().getSelectedItem() == null) {        // Add
+            // Business Validation
+            for (Student student : studentList) {
+                if (student.id.equals(id)) {
+                    txtId.getStyleClass().add("invalid");
+                    txtId.selectAll();
+                    txtId.requestFocus();
+                    return;
+                }
             }
+            Student student = new Student(id, name, address);
+            studentList.add(student);
+        }else{  // Update
+            Student selectedStudent = lstStudents.getSelectionModel().getSelectedItem();
+            selectedStudent.name = name;
+            selectedStudent.address = address;
         }
-
-        Student student = new Student(id, name, address);
-        studentList.add(student);
 
         btnNew.fire();
 
@@ -185,10 +190,25 @@ public class ListViewSceneController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        Student selectedStudent = lstStudents.getSelectionModel().getSelectedItem();
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION,
+                String.format("Are you sure to delete the Student Id:%s ?", selectedStudent.id),
+                ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optButton = confirmAlert.showAndWait();
+        if (optButton.isEmpty() || optButton.get() == ButtonType.NO) return;
+
+        lstStudents.getItems().remove(selectedStudent);
+        btnNew.fire();
     }
 
 
     public void txtOnAction(ActionEvent actionEvent) {
         btnSave.fire();
+    }
+
+    public void lstStudentsOnKeyReleased(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.DELETE){
+            btnDelete.fire();
+        }
     }
 }
