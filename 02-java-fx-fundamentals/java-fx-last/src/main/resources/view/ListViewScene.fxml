@@ -35,7 +35,7 @@
             </Button>
          </children>
       </HBox>
-      <ListView fx:id="lstNames" layoutX="14.0" layoutY="121.0" prefHeight="162.0" prefWidth="671.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <ListView fx:id="lstNames" layoutX="14.0" layoutY="121.0" onKeyReleased="#lstNamesOnKeyReleased" prefHeight="162.0" prefWidth="671.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
       <HBox layoutX="15.0" layoutY="296.0" spacing="10.0" style="-fx-background-color: LIGHTGRAY; -fx-background-radius: 10px;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <children>
             <Label fx:id="lblSelectedName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="591.0" text="No name has been selected" HBox.hgrow="ALWAYS">

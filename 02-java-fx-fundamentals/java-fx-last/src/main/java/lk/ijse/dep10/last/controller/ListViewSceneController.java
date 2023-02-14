@@ -4,6 +4,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.util.Optional;
 
@@ -52,6 +54,7 @@ public class ListViewSceneController {
 
         txtInput.clear();
         txtInput.requestFocus();
+        lstNames.getSelectionModel().clearSelection();
     }
 
     @FXML
@@ -66,6 +69,12 @@ public class ListViewSceneController {
         names.remove(lstNames.getSelectionModel().getSelectedIndex());
 
         lstNames.getSelectionModel().clearSelection();
+        txtInput.requestFocus();
     }
 
+    public void lstNamesOnKeyReleased(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.DELETE){
+            btnRemove.fire();
+        }
+    }
 }
