@@ -47,6 +47,21 @@ public class ListViewSceneController {
             lblSelectedName.setText("Selected Name: " + current);
             btnRemove.setDisable(false);
         });
+
+        lstStudents.getSelectionModel().selectedItemProperty().addListener((value, previous, current) -> {
+
+            if (current == null){
+                btnDelete.setDisable(true);
+                return;
+            }
+
+            btnDelete.setDisable(false);
+            txtId.setText(current.id);
+            txtName.setText(current.name);
+            txtAddress.setText(current.address);
+
+            txtId.setDisable(true);
+        });
     }
 
     @FXML
@@ -99,6 +114,8 @@ public class ListViewSceneController {
         txtId.getStyleClass().remove("invalid");
         txtName.getStyleClass().remove("invalid");
         txtAddress.getStyleClass().remove("invalid");
+
+        lstStudents.getSelectionModel().clearSelection();
 
         txtId.requestFocus();
     }
