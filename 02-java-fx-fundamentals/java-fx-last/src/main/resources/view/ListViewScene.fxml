@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="357.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewSceneController">
+<AnchorPane prefHeight="357.0" prefWidth="701.0" stylesheets="@../css/ListViewSceneStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewSceneController">
    <children>
       <Label alignment="CENTER" layoutX="294.0" layoutY="26.0" text="List View Demo" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <font>
@@ -43,7 +43,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnRemove" disable="true" minWidth="95.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" style="-fx-background-color: DARKRED; -fx-text-fill: WHITE;" text="REMOVE">
+            <Button fx:id="btnRemove" disable="true" minWidth="95.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" text="REMOVE">
                <font>
                   <Font size="16.0" />
                </font>
