@@ -61,8 +61,23 @@ public class MainViewController {
     }
 
     @FXML
-    void btnComboBoxOnAction(ActionEvent event) {
+    void btnComboBoxOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
 
+//        URL fxmlFile = getClass().getResource("/view/CombBoxScene.fxml");
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/CombBoxScene.fxml"));
+//        AnchorPane root = new FXMLLoader(getClass().getResource("/view/CombBoxScene.fxml")).load();
+//        Scene scene = new Scene(new FXMLLoader(getClass().getResource("/view/CombBoxScene.fxml")).load());
+//        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/CombBoxScene.fxml")).load()));
+
+        stage.setScene(new Scene(new FXMLLoader(getClass()
+                .getResource("/view/CombBoxScene.fxml")).load()));
+
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnComboBox.getScene().getWindow());
+        stage.setTitle("Combo Box Demo");
+        stage.show();
+        stage.centerOnScreen();
     }
 
 
