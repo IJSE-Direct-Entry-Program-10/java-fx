@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="706.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewExerciseSceneController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="+ NEW STUDENT">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <VBox layoutX="15.0" layoutY="65.0" spacing="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="65.0">
+         <children>
+            <HBox prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0" text="STUDENT ID: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField editable="false" maxWidth="1.7976931348623157E308" promptText="Genereated Student ID" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0" text="STUDENT NAME: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField editable="false" maxWidth="1.7976931348623157E308" promptText="Eg. Kasun Sampath" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="50.0" prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0" text="STUDENT CONTACT: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField editable="false" maxWidth="1.7976931348623157E308" promptText="Eg. 077-1234567" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="ADD">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="90.0" prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ListView maxWidth="1.7976931348623157E308" minHeight="75.0" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                  <Button maxHeight="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="REMOVE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="130.0" prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0" text="MODULES: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ListView maxWidth="1.7976931348623157E308" minHeight="150.0" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                  <VBox spacing="10.0">
+                     <children>
+                        <Button maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="&gt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="&lt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <ListView layoutX="195.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="150.0" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button minWidth="117.0" mnemonicParsing="false" text="SAVE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="195.0" layoutY="10.0" minWidth="117.0" mnemonicParsing="false" text="DELETE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <ListView layoutX="15.0" layoutY="490.0" prefHeight="217.0" prefWidth="568.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="490.0" />
+   </children>
+</AnchorPane>
