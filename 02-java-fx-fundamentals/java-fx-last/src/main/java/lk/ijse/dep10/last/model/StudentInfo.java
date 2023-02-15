@@ -18,4 +18,6 @@ public class StudentInfo {
         this.contacts = contacts;
         this.modules = modules;
     }
+
+
 }
