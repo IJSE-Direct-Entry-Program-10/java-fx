@@ -1,3 +1,7 @@
+.root{
+    -fx-font-family: Ubuntu;
+}
+
 #btnDelete, #btnRemove {
     -fx-background-color: #c00000;
     -fx-text-fill: white;
