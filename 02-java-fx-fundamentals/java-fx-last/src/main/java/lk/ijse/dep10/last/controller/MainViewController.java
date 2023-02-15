@@ -52,6 +52,7 @@ public class MainViewController {
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(btnListViewExercise.getScene().getWindow());
         stage.setTitle("List View Exercise");
