@@ -11,6 +11,7 @@ import lk.ijse.dep10.last.model.StudentInfo;
 import lk.ijse.dep10.last.util.Gender;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ListViewExerciseSceneController {
 
@@ -111,6 +112,30 @@ public class ListViewExerciseSceneController {
         lstSelectedModules.getSelectionModel().selectedItemProperty().addListener((value, previous, current) -> {
             btnBack.setDisable(current == null);
         });
+
+        lstStudents.getSelectionModel().selectedItemProperty().addListener((value, previous, current) -> {
+            btnDelete.setDisable(current == null);
+            if (current == null) return;
+
+            txtId.setText(current.id);
+            txtName.setText(current.name);
+            if (current.gender == Gender.MALE){
+                rdoMale.getToggleGroup().selectToggle(rdoMale);
+            }else{
+                rdoFemale.getToggleGroup().selectToggle(rdoFemale);
+            }
+            txtContact.clear();
+            lstContacts.getItems().clear();
+            lstContacts.getItems().addAll(current.contacts);
+            lstSelectedModules.getItems().clear();
+            lstSelectedModules.getItems().addAll(current.modules);
+
+            lstModules.getItems().clear();
+            lstModules.getItems().addAll("Object Oriented Programming", "Reactive Programming",
+                    "Event-Driven Programming", "Aspect Oriented Programming", "Declarative Programming",
+                    "Proto-type based OOP");
+            lstModules.getItems().removeAll(current.modules);
+        });
     }
 
     private boolean isNumber(String input) {
@@ -149,7 +174,13 @@ public class ListViewExerciseSceneController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        Optional<ButtonType> optButton = new Alert(Alert.AlertType.CONFIRMATION,
+                "Are you sure to delete this student?",
+                ButtonType.YES, ButtonType.NO).showAndWait();
+        if (optButton.isEmpty() || optButton.get() ==  ButtonType.NO) return;
 
+        lstStudents.getItems().remove(lstStudents.getSelectionModel().getSelectedItem());
+        btnNewStudent.fire();
     }
 
     @FXML
@@ -166,6 +197,8 @@ public class ListViewExerciseSceneController {
 
     @FXML
     void btnNewStudentOnAction(ActionEvent event) {
+        lstStudents.getSelectionModel().clearSelection();
+
         txtId.setText(generateNewStudentId());
         lblGender.setTextFill(Color.BLACK);
 
@@ -258,8 +291,11 @@ public class ListViewExerciseSceneController {
         ObservableList<StudentInfo> studentList = lstStudents.getItems();
 
         /* Business Validation */
+        StudentInfo selectedStudent = lstStudents.getSelectionModel().getSelectedItem();
+
         for (String enteredContact : lstContacts.getItems()) {
             for (StudentInfo student : studentList) {
+                if (student == selectedStudent) continue;
                 if (student.contacts.contains(enteredContact)){
                     new Alert(Alert.AlertType.ERROR,
                             String.format("Contact number: %s already exists", enteredContact)).showAndWait();
@@ -270,12 +306,21 @@ public class ListViewExerciseSceneController {
             }
         }
 
-        StudentInfo student = new StudentInfo(txtId.getText(),
-                txtName.getText(),
-                rdoMale.isSelected() ? Gender.MALE : Gender.FEMALE,
-                new ArrayList<>(lstContacts.getItems()),
-                new ArrayList<>(lstSelectedModules.getItems()));
-        studentList.add(student);
+        if (selectedStudent == null) {  // Add
+            StudentInfo student = new StudentInfo(txtId.getText(),
+                    txtName.getText().strip(),
+                    rdoMale.isSelected() ? Gender.MALE : Gender.FEMALE,
+                    new ArrayList<>(lstContacts.getItems()),
+                    new ArrayList<>(lstSelectedModules.getItems()));
+            studentList.add(student);
+        }else{  // Update
+            selectedStudent.name = txtName.getText().strip();
+            selectedStudent.gender = rdoMale.isSelected() ? Gender.MALE : Gender.FEMALE;
+            selectedStudent.contacts.clear();
+            selectedStudent.contacts.addAll(new ArrayList<>(lstContacts.getItems()));
+            selectedStudent.modules.clear();
+            selectedStudent.modules.addAll(new ArrayList<>(lstSelectedModules.getItems()));
+        }
         btnNewStudent.fire();
     }
 
@@ -296,7 +341,7 @@ public class ListViewExerciseSceneController {
 
     @FXML
     void lstStudentsOnKeyReleased(KeyEvent event) {
-
+        if (event.getCode() == KeyCode.DELETE) btnDelete.fire();
     }
 
     @FXML
