@@ -4,16 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="706.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewExerciseSceneController">
+<AnchorPane prefHeight="706.0" prefWidth="878.0" stylesheets="@../css/ListViewExerciseSceneStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.ListViewExerciseSceneController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="+ NEW STUDENT">
+      <Button fx:id="btnNewStudent" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnNewStudentOnAction" prefHeight="30.0" prefWidth="170.0" text="+ NEW STUDENT" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -27,7 +29,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField editable="false" maxWidth="1.7976931348623157E308" promptText="Genereated Student ID" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtId" editable="false" maxWidth="1.7976931348623157E308" promptText="Genereated Student ID" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -44,11 +46,36 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField editable="false" maxWidth="1.7976931348623157E308" promptText="Eg. Kasun Sampath" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtName" maxWidth="1.7976931348623157E308" promptText="Eg. Kasun Sampath" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="50.0" prefHeight="30.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="170.0" text="GENDER: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="rdoMale" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="MALE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rdoFemale" layoutX="195.0" layoutY="10.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="FEMALE" toggleGroup="$gender">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -61,12 +88,12 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField editable="false" maxWidth="1.7976931348623157E308" promptText="Eg. 077-1234567" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtContact" maxWidth="1.7976931348623157E308" onAction="#txtContactOnAction" promptText="Eg. 077-1234567" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="ADD">
+                  <Button fx:id="btnAdd" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="30.0" prefWidth="117.0" text="ADD">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -83,8 +110,8 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ListView maxWidth="1.7976931348623157E308" minHeight="75.0" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
-                  <Button maxHeight="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="REMOVE">
+                  <ListView fx:id="lstContacts" maxWidth="1.7976931348623157E308" minHeight="75.0" onKeyReleased="#lstContactsOnKeyReleased" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnRemove" maxHeight="30.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="30.0" prefWidth="117.0" text="REMOVE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -101,22 +128,22 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ListView maxWidth="1.7976931348623157E308" minHeight="150.0" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                  <ListView fx:id="lstModules" maxWidth="1.7976931348623157E308" minHeight="150.0" onKeyReleased="#lstModulesOnKeyReleased" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
                   <VBox spacing="10.0">
                      <children>
-                        <Button maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="&gt;">
+                        <Button fx:id="btnForward" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" onAction="#btnForwardOnAction" prefHeight="30.0" prefWidth="117.0" text="&gt;">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="&lt;">
+                        <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="117.0" text="&lt;">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
                      </children>
                   </VBox>
-                  <ListView layoutX="195.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="150.0" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                  <ListView fx:id="lstSelectedModules" layoutX="195.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="150.0" onKeyReleased="#lstSelectedModulesOnKeyReleased" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -129,12 +156,12 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button minWidth="117.0" mnemonicParsing="false" text="SAVE">
+                  <Button fx:id="btnSave" minWidth="117.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="195.0" layoutY="10.0" minWidth="117.0" mnemonicParsing="false" text="DELETE">
+                  <Button fx:id="btnDelete" layoutX="195.0" layoutY="10.0" minWidth="117.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -149,6 +176,6 @@
             </HBox>
          </children>
       </VBox>
-      <ListView layoutX="15.0" layoutY="490.0" prefHeight="217.0" prefWidth="568.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="490.0" />
+      <ListView fx:id="lstStudents" layoutX="15.0" layoutY="490.0" onKeyReleased="#lstStudentsOnKeyReleased" prefHeight="217.0" prefWidth="568.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="530.0" />
    </children>
 </AnchorPane>

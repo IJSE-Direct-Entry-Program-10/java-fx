@@ -1,0 +1,48 @@
+#btnDelete, #btnRemove {
+    -fx-background-color: #c00000;
+    -fx-text-fill: white;
+}
+
+#btnDelete:hover, #btnRemove:hover {
+    -fx-background-color: rgba(145, 1, 1, 0.82);
+}
+
+.list-view {
+    -fx-font-size: 16px;
+}
+
+.list-cell:hover {
+    -fx-background-color: lightgray;
+}
+
+#btnAdd, #btnSave {
+    -fx-background-color: #0067a9;
+    -fx-text-fill: white;
+}
+
+#btnAdd:hover, #btnSave:hover {
+    -fx-background-color: rgba(0, 103, 169, 0.82);
+}
+
+#btnNewStudent {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+#btnNewStudent:hover {
+    -fx-background-color: rgba(0, 128, 0, 0.87);
+}
+
+.text-field {
+    -fx-border-color: lightgray;
+    -fx-border-width: 1px;
+    -fx-background-color: white;
+}
+
+.text-field:focused {
+    -fx-border-color: #0080ff;
+}
+
+.invalid {
+    -fx-border-color: red;
+}
