@@ -135,6 +135,10 @@ public class ListViewExerciseSceneController {
                     "Event-Driven Programming", "Aspect Oriented Programming", "Declarative Programming",
                     "Proto-type based OOP");
             lstModules.getItems().removeAll(current.modules);
+
+            lstContacts.getSelectionModel().clearSelection();
+            lstModules.getSelectionModel().clearSelection();
+            lstSelectedModules.getSelectionModel().clearSelection();
         });
     }
 
@@ -228,6 +232,8 @@ public class ListViewExerciseSceneController {
         moduleList.addAll("Object Oriented Programming", "Reactive Programming",
                 "Event-Driven Programming", "Aspect Oriented Programming", "Declarative Programming",
                 "Proto-type based OOP");
+
+        lstModules.getSelectionModel().clearSelection();
 
         rdoMale.getToggleGroup().selectToggle(null);
 

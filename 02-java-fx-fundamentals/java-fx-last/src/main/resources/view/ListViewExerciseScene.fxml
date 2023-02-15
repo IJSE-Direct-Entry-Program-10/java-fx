@@ -109,7 +109,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="lstContacts" disable="true" maxWidth="1.7976931348623157E308" minHeight="75.0" onKeyReleased="#lstContactsOnKeyReleased" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                  <ListView fx:id="lstContacts" disable="true" maxWidth="1.7976931348623157E308" minHeight="90.0" onKeyReleased="#lstContactsOnKeyReleased" prefHeight="168.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
                   <Button fx:id="btnRemove" disable="true" maxHeight="30.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="30.0" prefWidth="117.0" text="REMOVE">
                      <font>
                         <Font size="16.0" />
@@ -175,6 +175,6 @@
             </HBox>
          </children>
       </VBox>
-      <ListView fx:id="lstStudents" layoutX="15.0" layoutY="490.0" onKeyReleased="#lstStudentsOnKeyReleased" prefHeight="217.0" prefWidth="568.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="530.0" />
+      <ListView fx:id="lstStudents" layoutX="15.0" layoutY="541.0" onKeyReleased="#lstStudentsOnKeyReleased" prefHeight="150.0" prefWidth="848.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="541.0" />
    </children>
 </AnchorPane>
