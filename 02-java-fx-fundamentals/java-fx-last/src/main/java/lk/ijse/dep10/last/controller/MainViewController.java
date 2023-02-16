@@ -87,7 +87,14 @@ public class MainViewController {
     }
 
     @FXML
-    void btnTableViewOnAction(ActionEvent event) {
-
+    void btnTableViewOnAction() throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new FXMLLoader
+                (getClass().getResource("/view/TableViewScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnTableView.getScene().getWindow());
+        stage.setTitle("Table View Demo");
+        stage.show();
+        stage.centerOnScreen();
     }
 }
