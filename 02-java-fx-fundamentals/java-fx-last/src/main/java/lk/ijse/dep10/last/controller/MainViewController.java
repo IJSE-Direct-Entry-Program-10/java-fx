@@ -1,10 +1,12 @@
 package lk.ijse.dep10.last.controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -15,6 +17,8 @@ import java.net.URL;
 public class MainViewController {
 
     public Button btnListViewExercise;
+    public Label lblTitle;
+
     @FXML
     private Button btnComboBox;
 
@@ -82,8 +86,23 @@ public class MainViewController {
 
 
     @FXML
-    void btnSceneCommunicationOnAction(ActionEvent event) {
+    void btnSceneCommunicationOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        URL fxmlFile = getClass().getResource("/view/SettingsView.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(fxmlFile);
+        AnchorPane root = fxmlLoader.load();
 
+        SettingsViewController ctrl = fxmlLoader.getController();
+        SimpleStringProperty observable = new SimpleStringProperty(lblTitle.getText());
+        lblTitle.textProperty().bind(observable);
+        ctrl.initData(observable);
+
+        stage.setScene(new Scene(root));
+        stage.setTitle("App Settings");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnSceneCommunication.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML

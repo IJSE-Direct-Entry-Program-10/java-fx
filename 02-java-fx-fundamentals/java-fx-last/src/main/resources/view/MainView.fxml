@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="239.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.last.controller.MainViewController">
    <children>
-      <Label alignment="CENTER" layoutX="253.0" layoutY="37.0" text="Java FX Final App" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <Label fx:id="lblTitle" alignment="CENTER" layoutX="253.0" layoutY="37.0" text="Java FX Final App" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="Ubuntu Bold" size="20.0" />
          </font>
@@ -35,7 +35,7 @@
                   <Font name="Ubuntu" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnSceneCommunication" layoutX="10.0" layoutY="78.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSceneCommunicationOnAction" prefHeight="34.0" prefWidth="260.0" text="Scene-Scene Communication">
+            <Button fx:id="btnSceneCommunication" layoutX="10.0" layoutY="78.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSceneCommunicationOnAction" prefHeight="34.0" prefWidth="260.0" text="App Settings">
                <font>
                   <Font name="Ubuntu" size="16.0" />
                </font>
