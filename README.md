@@ -23,7 +23,11 @@ Timeline,
 - [Java FX FXML - 2](./02-java-fx-fundamentals/java-fx-fxml-2/)
 - [Modal Windows](./02-java-fx-fundamentals/modal-windows/)
 - [Java FX Canvas](./02-java-fx-fundamentals/java-fx-canvas/)
+- [Java FX Last](./02-java-fx-fundamentals/java-fx-last)
 
+**3. FX Concurrency**
+
+A simple project to demonstrate the usage of Java FX concurrency when the GUI thread has so many stuff to do
 
 ### License
 Copyright &copy; 2023 DEP. All Rights Reserved.
